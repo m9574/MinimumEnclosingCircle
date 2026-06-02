@@ -1,6 +1,6 @@
+import random
 import numpy as np
 import matplotlib.pyplot as plt
-import random
 from circle import *
 
 def min_circle_with_2_points(P, p_i, p_j):
@@ -33,23 +33,29 @@ def min_circle(P):
     return C
 
 def main():
-    points = [(1, 2), (3, 4), (5, 1), (2, 6), (4, 3)]
+    
+    # Randomly generated points
+    points = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(10)]
     
     C = min_circle(points)
     
-    # Plot points
+    # Point Set
     xs = [p[0] for p in points]
     ys = [p[1] for p in points]
     plt.scatter(xs, ys, color='blue', zorder=5)
-    
-    # Plot circle
+
+    # Circle
     theta = np.linspace(0, 2 * np.pi, 300)
     cx = C.a + C.r * np.cos(theta)
     cy = C.b + C.r * np.sin(theta)
     plt.plot(cx, cy, color='red')
     
-    plt.axis('equal')  # important — prevents circle from looking like an ellipse
-    plt.show()
+    plt.xlim(0, 100)
+    plt.ylim(0, 100)
+    plt.axis('equal')
+    plt.title(f'Minimum Enclosing Circle ($n$ = {len(points)})')
+    plt.grid(True, color='gray', linestyle='--', linewidth=0.5, alpha=0.5)
+    plt.savefig('circle.png', dpi=150)
 
 if __name__ == "__main__":
     main()
