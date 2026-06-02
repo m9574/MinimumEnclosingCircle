@@ -35,7 +35,7 @@ def min_circle(P):
 def main():
     
     # Randomly generated points
-    points = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(10)]
+    points = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(50)]
     
     C = min_circle(points)
     
