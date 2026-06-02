@@ -20,9 +20,11 @@ $j$-th step of the loop,  is $\frac{2}{j}$. The minimum enclosing circle of $P[1
 
 **Q4:** So if there is a $\frac{2}{j}$ chance of calling `min_circle_with_2_points`, what's the expected running time of `min_circle_with_1_point`?<br>
 **A4:**
+
 $$
 O(i) + \sum_{j=1}^{i} \frac{2}{j} \cdot O(j) = O(i)
 $$
+
 and $i \leq n$.
 
 **Q5:** How much space and time does `min_circle` take? <br>
@@ -31,10 +33,12 @@ and $i \leq n$.
 **Q6:** When we're running `min_circle`, what is the probability we call `min_circle_with_1_point`?<br>
 **A6:** Similar to **A3**, we do backwards analysis again. The minimum enclosing circle of $P[1..i]$ is defined by at most $3$ points from $P[1..i]$. By backwards analysis, the probability that $p_i$ is one of those (at most) $3$ boundary-defining points is $\frac{3}{i}$.
 
-**Q7:** What's the running time of `min_circle`?<br>
+**Q7:** What's the running time and space of `min_circle`?<br>
 **A7:** 
+
 $$
 O(n) + \sum_{i=1}^{n} \frac{3}{i} \cdot O(i) = O(n)
 $$
-So the total algorithm runs in $O(n)$ expected time.
+
+So the total algorithm runs in $O(n)$ expected time and space.
 
